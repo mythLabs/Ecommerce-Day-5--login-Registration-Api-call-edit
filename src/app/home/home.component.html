@@ -1,0 +1,20 @@
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="dashboard">Routin Demo</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li routerLinkActive="active"><a routerLink="userListing" >User Listing</a></li>
+      <li routerLinkActive="active"><a routerLink="addUser" >Add User</a></li>
+       <li routerLinkActive="active"><a routerLink="addProduct" >Product Listing</a></li>
+      <li routerLinkActive="active"><a routerLink="productListing" > Add Product</a></li>
+     
+    </ul>
+     <ul class="nav navbar-nav navbar-right">
+      <li><a style="cursor:pointer" (click)="logOut()" >Log-Out</a></li>
+    </ul>
+  </div>
+</nav>
+<div style="text-align: center;margin-top:50px;">
+  <router-outlet></router-outlet>
+  </div>
