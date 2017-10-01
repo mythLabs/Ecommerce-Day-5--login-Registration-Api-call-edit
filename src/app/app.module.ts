@@ -14,6 +14,7 @@ import { UserComponent } from './Home/user/user.component';
 import { ProductComponent } from './Home/product/product.component';
 import { UserListingComponent } from './Home/user-listing/user-listing.component';
 import { ProductListingComponent } from './Home/product-listing/product-listing.component';
+import { SelfFilterPipe } from './Pipe/self-filter.pipe';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent,canActivate: [guard] },
@@ -38,7 +39,8 @@ const appRoutes: Routes = [
     UserComponent,
     ProductComponent,
     UserListingComponent,
-    ProductListingComponent
+    ProductListingComponent,
+    SelfFilterPipe
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,6 @@
+.first {
+    cursor: not-allowed;
+    filter: alpha(opacity=65);
+    box-shadow: none; 
+    opacity: .65;
+}

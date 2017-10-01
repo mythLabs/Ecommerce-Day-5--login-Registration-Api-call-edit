@@ -8,12 +8,7 @@ export class ApiService {
   }
 
   saveUser(user:User) {
-    //     let headers = new HttpHeaders();
-    //  headers.set('Content-Type', 'application/json'); 
-    console.log(user);
-      return this._httpClient.post("http://localhost:62981/api/User",user).subscribe(data => {
-      console.log("done");
-    });
+      return this._httpClient.post("http://localhost:52873/api/saveUser",user);
 
   }
 
@@ -21,15 +16,23 @@ export class ApiService {
     //     let headers = new HttpHeaders();
     //  headers.set('Content-Type', 'application/json'); 
     console.log(user);
-      return this._httpClient.get("http://localhost:62981/api/User",{params: new HttpParams().set('username', user.Username).set('password',user.Password)});
+      return this._httpClient.get("http://localhost:52873/api/Users",{params: new HttpParams().set('username', user.Username).set('password',user.Password)});
 
   }
 
   getAllUsers() {
-       return this._httpClient.get("http://localhost:62981/api/User");
+       return this._httpClient.get("http://localhost:52873/api/Users");
   }
 
   getUserById(userId:number) {
-     return this._httpClient.get("http://localhost:62981/api/User",{params: new HttpParams().set('userId', userId.toString())});
+     return this._httpClient.get("http://localhost:52873/api/Users",{params: new HttpParams().set('id', userId.toString())});
+  }
+
+  updateUser(user:User) {
+    return this._httpClient.post("http://localhost:52873/api/updateUser",user);
+  }
+
+  deleteUser(UserId) {
+    return this._httpClient.get("http://localhost:52873/api/deleteUser",{params: new HttpParams().set('id', UserId.toString())});
   }
 }

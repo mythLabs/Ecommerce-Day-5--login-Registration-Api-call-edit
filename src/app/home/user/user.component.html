@@ -1,6 +1,6 @@
 <h3>Registration</h3>
 
-<form [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
+<form *ngIf="(currentUser && editMode == true) || editMode == false" [formGroup]="userForm" (ngSubmit)="onSubmit()" novalidate>
    
   <div class="form-group">
       <label class="center-block">

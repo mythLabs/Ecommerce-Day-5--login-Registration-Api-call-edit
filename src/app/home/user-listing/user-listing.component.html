@@ -9,8 +9,9 @@
         <th>Action</th>
       </tr>
     </thead>
-    <tr *ngFor="let user of results">
+    <tr *ngFor="let user of (results |selfFilter); let first=first" >
       <td >{{user.FirstName}}</td><td>{{user.LastName}}</td><td>{{user.PhoneNumber}}</td>
-      <td>{{user.City}}</td><td>{{user.Country}}</td><td><button class="btn btn-primary btn-sm" (click)="onEdit(user.UserId)">Edit</button></td>
+      <td>{{user.City}}</td><td>{{user.Country}}</td><td><button [ngClass]="{ first: first}" class="btn btn-primary btn-sm" (click)="onEdit(user.UserId)">Edit</button>
+        <button class="btn btn-danger btn-sm" (click)="onDelete(user.UserId)" [ngClass]="{ first: first}">Delete</button></td>
     </tr>
   </table>

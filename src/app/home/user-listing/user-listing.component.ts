@@ -13,13 +13,24 @@ export class UserListingComponent implements OnInit {
   constructor( private apiService:ApiService, private router:Router) { }
 
   ngOnInit() {
-     this.apiService.getAllUsers().subscribe(data => {
-       this.results = data;
-    });
+    this.getAllUsers();
   }
 
+  getAllUsers() {
+    this.apiService.getAllUsers().subscribe(data => {
+      this.results='';
+      this.results = data;
+   });
+  }
+  
   onEdit(UserId) {
      this.router.navigate(['/home/editUser',UserId])
+  }
+
+  onDelete(UserId:number) {
+    this.apiService.deleteUser(UserId).subscribe(data => {
+      this.getAllUsers();
+   });
   }
 
 }

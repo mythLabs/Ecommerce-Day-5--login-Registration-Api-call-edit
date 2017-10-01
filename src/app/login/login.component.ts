@@ -1,6 +1,6 @@
+import { User } from './../Model/User';
 import { Component, OnInit } from '@angular/core';
 import {ApiService} from '../Service/api.service';
-import {User} from '../Model/User';
 import {Router} from "@angular/router";
 
 @Component({
@@ -21,10 +21,10 @@ Username:string;
     if(this.Username!= "" && this.Username!=null &&this.Username!=undefined) {
       user.Username=this.Username;
       user.Password=this.Password;
-      this.apiService.onLogin(user).subscribe(data => {
+      this.apiService.onLogin(user).subscribe((data:User) => {
         debugger;
         if(data!=null) {
-                localStorage.setItem("isLoggedIn","1");
+                localStorage.setItem("isLoggedIn",data.UserId.toString());
           this.router.navigate(['/home']);
         }
        
