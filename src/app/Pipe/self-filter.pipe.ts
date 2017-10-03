@@ -8,10 +8,9 @@ export class SelfFilterPipe implements PipeTransform {
 
   transform(value:User[], args?: any): any {
     try {
-      const user= value.filter(x=>x.UserId == +localStorage.getItem('isLoggedIn'));
-      value.filter(x=>x.UserId != +localStorage.getItem('isLoggedIn'));
-      value.unshift(...user);
-       console.log(value);
+      const user = value.filter(x=>x.UserId == +localStorage.getItem('isLoggedIn'));
+     let res= value.filter(x=>x.UserId != +localStorage.getItem('isLoggedIn'));
+     res.unshift(...user);
        return value;
     }catch(e) {
 

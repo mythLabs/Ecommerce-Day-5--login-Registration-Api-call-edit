@@ -14,6 +14,7 @@ export class UserComponent implements OnInit {
   userId:number;
   userForm: FormGroup;
   currentUser;
+  imageName='';
 
   constructor(private activatedRoute: ActivatedRoute, private apiService:ApiService,private fb: FormBuilder,private router:Router) {
     //this.createForm("");
@@ -61,6 +62,7 @@ export class UserComponent implements OnInit {
        Country = !user?Country: user.Country ;
        Username = !user?Username: user.Username ;
        Password= !user?Password: user.Password ;
+       this.imageName= user.profileImageName;
      }
  
      this.userForm = new FormGroup({
@@ -109,9 +111,23 @@ export class UserComponent implements OnInit {
         City:formModel.City,
         Country:formModel.Country,
         Username:formModel.Username,
-        Password:formModel.Password
+        Password:formModel.Password,
+        profileImageName: this.imageName
       };
      return saveUser;
+   }
+
+   fileChange(event) {
+         let fileList: FileList = event.target.files;
+         if(fileList.length >0) {
+             let file:File = fileList[0];
+             let formData:FormData = new FormData();
+             formData.append('uploadFile',file,file.name);
+
+             this.apiService.saveImage(formData).subscribe(data => {
+                 this.imageName="http://localhost:52873/ProfileImage/"+data['filename'];
+             });
+         }
    }
 
 

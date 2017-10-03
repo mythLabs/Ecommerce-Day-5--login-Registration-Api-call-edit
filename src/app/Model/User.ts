@@ -7,4 +7,5 @@ export class User {
         Country: string;
         Username: string;
         Password: string;
+        profileImageName : string;
 }

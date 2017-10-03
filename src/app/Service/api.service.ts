@@ -35,4 +35,8 @@ export class ApiService {
   deleteUser(UserId) {
     return this._httpClient.get("http://localhost:52873/api/deleteUser",{params: new HttpParams().set('id', UserId.toString())});
   }
+
+  saveImage(formValue) {
+    return this._httpClient.post("http://localhost:52873/api/uploadFile",formValue);
+  }
 }
