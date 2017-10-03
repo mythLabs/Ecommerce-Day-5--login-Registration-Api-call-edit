@@ -1,0 +1,18 @@
+<div class="container-fluid">
+  <table class="table table-striped" style="text-align:left">
+    <thead>
+      <tr>
+        <th>Category Name</th>
+        <th>Category Code</th>
+        <th>category Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let category of results" >
+      <td >{{category.CategoryName}}</td><td>{{category.CategoryCode}}</td><td>{{category.CategoryDescription}}</td>
+      <td><button class="btn btn-primary btn-sm" (click)="onEdit(category.CategoryId)">Edit</button>
+        </td>
+    </tr>
+  </table>
+</div>
+

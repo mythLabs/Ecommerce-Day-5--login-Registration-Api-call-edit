@@ -82,11 +82,11 @@ export class UserComponent implements OnInit {
     this.currentUser = this.prepareDataBeforeSave();
     if(!this.editMode) {
          this.apiService.saveUser(this.currentUser).subscribe(data => {
-          this.router.navigate(['userListing'])
+          this.router.navigate(['/home/userListing'])
         });
      } else {
           this.apiService.updateUser(this.currentUser).subscribe(data => {
-            this.router.navigate(['userListing'])
+            this.router.navigate(['/home/userListing'])
           });;
      }
     

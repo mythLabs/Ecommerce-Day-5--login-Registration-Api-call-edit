@@ -1,13 +1,35 @@
   <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" routerLink="dashboard">Routin Demo</a>
+      <a class="navbar-brand" routerLink="dashboard">Ecommerce Demo</a>
     </div>
     <ul class="nav navbar-nav">
-      <li routerLinkActive="active"><a routerLink="userListing" >User Listing</a></li>
-      <li routerLinkActive="active"><a routerLink="addUser" >Add User</a></li>
-       <li routerLinkActive="active"><a routerLink="addProduct" >Product Listing</a></li>
-      <li routerLinkActive="active"><a routerLink="productListing" > Add Product</a></li>
+        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">Manage Users
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li routerLinkActive="active"><a routerLink="userListing" >User Listing</a></li>
+           <li routerLinkActive="active"><a routerLink="addUser" >Add User</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">Manage Products
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li routerLinkActive="active"><a routerLink="productListing" >Product Listing</a></li>
+      <li routerLinkActive="active"><a routerLink="addProduct" > Add Product</a></li>
+        </ul>
+      </li>
+      <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:void(0)">Manage Categories
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li routerLinkActive="active"><a routerLink="categoryListing" >Category Listing</a></li>
+      <li routerLinkActive="active"><a routerLink="addCategory">Add Category</a></li>
+        </ul>
+      </li>
+       
+       
      
     </ul>
      <ul class="nav navbar-nav navbar-right">

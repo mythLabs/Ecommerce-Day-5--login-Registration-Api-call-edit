@@ -1,3 +1,29 @@
-<p>
-  product-listing works!
-</p>
+<div id="dropd">
+  <select class="form-control" [(ngModel)]="CategoryId" aria-placeholder="select">
+    <option value="999" >All</option>
+    <option *ngFor="let category of categories" [ngValue]="category.CategoryId">{{category.CategoryName}}</option>
+   </select>
+</div>
+<div class="container-fluid">
+
+<table class="table table-striped" style="text-align:left">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Stock size</th>
+        <th>Seller's name</th>
+        <th>Product Description</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tr *ngFor="let product of (results|productFilter:CategoryId )" >
+      <td >{{product.ProductName}}</td>
+      <td>{{product.StockSize}}</td>
+      <td>{{product.SellerName}}</td>
+      <td>{{product.ProductDescription}}</td>
+      <td><button class="btn btn-primary btn-sm" (click)="onEdit(product.ProductId)">Edit</button>
+      <button class="btn btn-danger btn-sm" (click)="onDelete(product.ProductId)" [ngClass]="{ first: first}">Delete</button>
+        </td>
+    </tr>
+  </table>
+   </div>

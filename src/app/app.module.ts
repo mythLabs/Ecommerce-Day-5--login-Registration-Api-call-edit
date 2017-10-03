@@ -15,6 +15,9 @@ import { ProductComponent } from './Home/product/product.component';
 import { UserListingComponent } from './Home/user-listing/user-listing.component';
 import { ProductListingComponent } from './Home/product-listing/product-listing.component';
 import { SelfFilterPipe } from './Pipe/self-filter.pipe';
+import { CategoryComponent } from './home/category/category.component';
+import { CategoryListingComponent } from './home/category-listing/category-listing.component';
+import { ProductFilterPipe } from './pipe/product-filter.pipe';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent,canActivate: [guard] },
@@ -24,8 +27,12 @@ const appRoutes: Routes = [
                  {path:'userListing',component:UserListingComponent},
                  {path:'addUser',component:UserComponent},
                  {path:'editUser/:id',component:UserComponent},
+                 {path:'addCategory',component:CategoryComponent},
+                 {path:'categoryListing',component:CategoryListingComponent},
+                 {path:'editCategory/:id',component:CategoryComponent},
                  {path:'addProduct',component:ProductComponent},
-                 {path:'productListing',component:ProductListingComponent}
+                 {path:'productListing',component:ProductListingComponent},
+                  {path:'editProduct/:id',component:ProductComponent}
                ] },
   { path: 'login', component: LoginComponent }
   
@@ -40,7 +47,10 @@ const appRoutes: Routes = [
     ProductComponent,
     UserListingComponent,
     ProductListingComponent,
-    SelfFilterPipe
+    SelfFilterPipe,
+    CategoryComponent,
+    CategoryListingComponent,
+    ProductFilterPipe
   ],
   imports: [
     BrowserModule,
